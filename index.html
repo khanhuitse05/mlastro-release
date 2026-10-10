@@ -104,6 +104,10 @@
         }
     </script>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -148,12 +152,37 @@
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(400px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255, 176, 205, 0.15), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glass-panel > * {
+            position: relative;
+            z-index: 1;
         }
 
         .glass-panel:hover {
             background: rgba(255, 255, 255, 0.06);
             border-color: rgba(255, 176, 205, 0.3);
             box-shadow: 0 10px 40px rgba(247, 81, 161, 0.15), inset 0 0 12px rgba(255, 176, 205, 0.1);
+        }
+        
+        .glass-panel:hover::before {
+            opacity: 1;
         }
 
         .primary-glow {
