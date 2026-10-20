@@ -9,7 +9,7 @@ Live Site: [mlastro.com](https://mlastro.com/)
 ## Overview
 
 This repository contains the static web pages and configuration files serving the MLAstro Hub product page:
-- **`index.html`**: Main landing page featuring product highlights, direct download links (iOS App Store, Google Play, Windows desktop installer), and hardware drivers (CP2102 USB driver, OnStepX ASCOM driver).
+- **`index.html`**: Main landing page featuring product highlights, direct download links (iOS App Store, Google Play, Windows desktop installer), and hardware drivers/plugins (CP2102 USB driver, OnStepX ASCOM driver, RPA Nina plugin).
 - **`policy.html`**: Privacy policy.
 - **`terms.html`**: Terms of service.
 - **`windows_config.json`**: Remote configuration and version checks for the desktop client.
