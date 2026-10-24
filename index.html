@@ -201,6 +201,357 @@
         webgl-shader {
             pointer-events: none;
         }
+
+        /* ===== ChatGPT-style download sections ===== */
+        .dl-section {
+            padding: 4rem 24px;
+            scroll-margin-top: 5rem;
+        }
+
+        @media (min-width: 768px) {
+            .dl-section {
+                padding: 6rem 24px;
+            }
+        }
+
+        .dl-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            gap: 2rem;
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .dl-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .dl-grid {
+                gap: 4rem;
+            }
+        }
+
+        .dl-text {
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .dl-heading {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-weight: 600;
+            font-size: 44px;
+            line-height: 1.05;
+            letter-spacing: -0.035em;
+            color: #fff;
+            text-wrap: balance;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .dl-heading {
+                font-size: 56px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .dl-heading {
+                font-size: 64px;
+            }
+        }
+
+        .dl-copy {
+            font-size: 16px;
+            line-height: 1.55;
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        .dl-copy p:not(:last-child) {
+            margin-bottom: 1.1em;
+        }
+
+        /* White pill buttons */
+        .btn-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            height: 40px;
+            padding: 0 1.25rem;
+            border-radius: 9999px;
+            background: #fff;
+            color: #0d0d0d;
+            font-size: 15px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+
+        .btn-pill:hover {
+            background: #ececec;
+            box-shadow: 0 0 24px rgba(255, 176, 205, 0.25);
+        }
+
+        .btn-pill:active {
+            transform: scale(0.97);
+        }
+
+        .btn-pill:focus-visible,
+        .text-link:focus-visible {
+            outline: 2px solid #ffb0cd;
+            outline-offset: 3px;
+        }
+
+        .btn-pill-lg {
+            height: 48px;
+            padding: 0 1.5rem;
+            font-size: 16px;
+        }
+
+        /* Driver / Plugin Button Rows */
+        .driver-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: #fff;
+            width: 100%;
+        }
+
+        .driver-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 176, 205, 0.35);
+            box-shadow: 0 8px 24px rgba(247, 81, 161, 0.15);
+            transform: translateY(-1px);
+        }
+
+        /* Secondary text links ("View all releases ›") */
+        .text-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.125rem;
+            font-size: 16px;
+            color: #fff;
+            width: fit-content;
+            transition: color 0.2s, opacity 0.2s;
+        }
+
+        .text-link:hover {
+            color: #ffb0cd;
+        }
+
+        .text-link .material-symbols-outlined {
+            transition: transform 0.2s;
+        }
+
+        .text-link:hover .material-symbols-outlined {
+            transform: translateX(3px);
+        }
+
+        /* QR cards */
+        .qr-card {
+            width: 140px;
+            height: 140px;
+            padding: 12px;
+            background: #fff;
+            border-radius: 1rem;
+        }
+
+        /* Art cards (Milky Way backdrop) */
+        .art-card {
+            position: relative;
+            width: 100%;
+            max-width: 440px;
+            aspect-ratio: 440 / 460;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: #0b0e14 url("./assets/bg.webp") center / cover no-repeat;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 30px 80px -30px rgba(247, 81, 161, 0.25);
+        }
+
+        .art-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(11, 14, 20, 0) 40%, rgba(11, 14, 20, 0.35) 100%);
+            pointer-events: none;
+        }
+
+        /* Mount Frame for Firmware */
+        .mount-frame {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 78%;
+            height: 82%;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            background: #11141c;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2), 0 30px 60px rgba(0, 0, 0, 0.65);
+            z-index: 1;
+        }
+
+        .mount-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 55%;
+            display: block;
+        }
+
+        .mount-badge {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            right: 12px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            background: rgba(11, 14, 20, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Hardware Setup Guide Animation Card with bg.webp backdrop */
+        .art-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(11, 14, 20, 0.25) 0%, rgba(11, 14, 20, 0.6) 100%);
+            pointer-events: none;
+        }
+
+        @keyframes cablePulse {
+            0% { stroke-dashoffset: 80; }
+            100% { stroke-dashoffset: 0; }
+        }
+
+        @keyframes arrowInsert {
+            0%, 100% { transform: translateX(0); opacity: 0.8; }
+            50% { transform: translateX(6px); opacity: 1; filter: drop-shadow(0 0 6px #38bdf8); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.6; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 0 8px #00ffaa); }
+        }
+
+        @keyframes sparkFlash {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); filter: drop-shadow(0 0 8px #ffb0cd); }
+        }
+
+        .cable-flow {
+            stroke-dasharray: 6, 10;
+            animation: cablePulse 1.4s linear infinite;
+        }
+
+        .cable-flow-rev {
+            stroke-dasharray: 5, 12;
+            animation: cablePulse 1.8s linear infinite reverse;
+        }
+
+        .arrow-anim {
+            animation: arrowInsert 1.2s ease-in-out infinite;
+        }
+
+        .pulse-led {
+            animation: pulseGlow 1.6s ease-in-out infinite;
+        }
+
+        .spark-anim {
+            animation: sparkFlash 2s ease-in-out infinite;
+        }
+
+        .phone-frame {
+            position: absolute;
+            left: 50%;
+            top: 12%;
+            width: 60%;
+            transform: translateX(-50%);
+            padding: 6px;
+            border-radius: 2.4rem;
+            background: #0a0a0a;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18), 0 30px 60px rgba(0, 0, 0, 0.55);
+            z-index: 1;
+        }
+
+        .phone-frame img {
+            display: block;
+            width: 100%;
+            border-radius: 2rem;
+        }
+
+        .window-frame {
+            position: absolute;
+            left: 10%;
+            top: 15%;
+            width: 150%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #1e1f24;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16), 0 30px 60px rgba(0, 0, 0, 0.55);
+            z-index: 1;
+        }
+
+        .window-bar {
+            display: flex;
+            gap: 6px;
+            padding: 10px 12px;
+            background: #2a2b31;
+        }
+
+        .window-bar span {
+            width: 10px;
+            height: 10px;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .window-frame img {
+            display: block;
+            width: 100%;
+        }
+
+        .art-placeholder {
+            position: absolute;
+            inset: 12%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            border: 1.5px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 1rem;
+            background: rgba(11, 14, 20, 0.45);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            color: rgba(255, 255, 255, 0.7);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            z-index: 1;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-in-up {
+                animation: none;
+                opacity: 1 !important;
+            }
+        }
     </style>
 </head>
 
@@ -269,7 +620,8 @@ void main() {
     float glow = smoothstep(0.0, 1.0, 1.0 - uv.y);
     finalColor += vec3(0.93, 0.28, 0.6) * glow * 0.03; // Reduced primary accent glow for darkness
 
-    gl_FragColor = vec4(finalColor, 1.0);
+    // Dimmed way down so the clean download layout stays the focus
+    gl_FragColor = vec4(finalColor * 0.45, 1.0);
 }`;
                     function cs(type, src) {
                         const s = gl.createShader(type);
@@ -344,142 +696,444 @@ void main() {
             </a>
         </div>
     </header>
-    <main class="pt-24">
-        <!-- Hero Section -->
-        <section class="relative px-container-padding py-16 md:py-32 max-w-screen-2xl mx-auto overflow-hidden">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="z-10 text-center lg:text-left animate-fade-in-up">
-                    <span
-                        class="font-label-caps text-label-caps text-secondary mb-4 block tracking-widest uppercase">Next-Gen
-                        Mount Controller</span>
-                    <h1
-                        class="font-display-lg text-display-lg md:text-[72px] leading-tight mb-6 bg-gradient-to-r from-on-background via-primary to-secondary bg-clip-text text-transparent">
-                        Full Control, At Your Fingertips.
-                    </h1>
-                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto lg:mx-0 mb-10">
-                        Take full control of your OnStepX-powered mount from one app. Align, track, configure, and
-                        access advanced mount settings without the frustration of the web-based interface.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a class="px-8 py-4 bg-primary text-on-primary font-headline-md rounded-xl text-center hover:shadow-[0_0_30px_rgba(255,176,205,0.4)] transition-all flex items-center justify-center gap-2"
-                            href="#downloads">
-                            <span class="material-symbols-outlined">download</span>
-                            Get Started
+    <main class="pt-20" id="downloads">
+
+        <!-- ============ 1. MOBILE (text left / art right) ============ -->
+        <section class="dl-section" id="mobile">
+            <div class="dl-grid">
+                <div class="dl-text md:justify-self-end opacity-0">
+                    <h1 class="dl-heading">Download MLAstro Hub for mobile</h1>
+                    <div class="dl-copy">
+                        <p>Full mobile control suite for field observations. Align, track, and slew your
+                            OnStepX-powered mount right from your phone or tablet.</p>
+                        <p>Available for iPhone, iPad, and Android.</p>
+                    </div>
+                    <div class="flex flex-row items-start gap-3 md:gap-6 mt-8">
+                        <!-- iOS -->
+                        <div class="flex flex-col items-center gap-3">
+                            <div class="qr-card hidden md:block">
+                                <img src="./assets/qr-ios.svg"
+                                    alt="QR code linking to the Apple App Store listing for MLAstro Hub"
+                                    class="w-full h-full">
+                            </div>
+                            <a class="btn-pill w-[140px]" href="https://apps.apple.com/app/6767999378"
+                                target="_blank" rel="noopener">
+                                <svg width="16" height="16" viewBox="0 0 384 512" fill="currentColor"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+                                </svg>
+                                iOS
+                            </a>
+                        </div>
+                        <!-- Android -->
+                        <div class="flex flex-col items-center gap-3">
+                            <div class="qr-card hidden md:block">
+                                <img src="./assets/qr-android.svg"
+                                    alt="QR code linking to the Google Play listing for MLAstro Hub"
+                                    class="w-full h-full">
+                            </div>
+                            <a class="btn-pill w-[140px]"
+                                href="https://play.google.com/store/apps/details?id=com.mlastro.controllapp"
+                                target="_blank" rel="noopener">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85a.637.637 0 0 0-.83.22l-1.88 3.24a11.43 11.43 0 0 0-8.94 0L5.65 5.67a.643.643 0 0 0-.87-.2c-.28.18-.37.54-.22.83L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z" />
+                                </svg>
+                                Android
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="art-card md:justify-self-start opacity-0">
+                    <div class="phone-frame">
+                        <img src="./assets/skymap.PNG" alt="MLAstro Hub sky map on iPhone" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 2. WINDOWS (art left / text right) ============ -->
+        <section class="dl-section" id="windows">
+            <div class="dl-grid">
+                <div class="dl-text md:order-2 md:justify-self-start opacity-0">
+                    <h2 class="dl-heading">Download MLAstro Hub for Windows</h2>
+                    <div class="dl-copy">
+                        <p>Advanced mount control for your desktop PC. Align, track, configure, and access advanced
+                            mount settings without the frustration of the web-based interface.</p>
+                    </div>
+                    <div class="flex flex-col items-start gap-3 mt-8">
+                        <a class="btn-pill btn-pill-lg min-w-40"
+                            href="https://github.com/saigonastrolab/mlastro-release/releases/latest/download/MLAstro_Hub_Setup.rar"
+                            target="_blank" rel="noopener">
+                            <svg width="16" height="16" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z" />
+                            </svg>
+                            Download for Windows
+                        </a>
+                        <p class="text-[13px] text-white/50">Requires Windows 10/11 x64</p>
+                    </div>
+                    <div class="mt-8 flex flex-col gap-4">
+                        <a class="text-link" href="https://github.com/saigonastrolab/mlastro-release/releases"
+                            target="_blank" rel="noopener">
+                            View all releases
+                            <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="art-card md:order-1 md:justify-self-end opacity-0">
+                    <div class="window-frame">
+                        <div class="window-bar">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <img src="./assets/status.PNG" alt="MLAstro Hub mount control dashboard" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 3. HARDWARE (text left / art right) ============ -->
+        <section class="dl-section" id="hardware">
+            <div class="dl-grid">
+                <div class="dl-text md:justify-self-end opacity-0">
+                    <h2 class="dl-heading">Hardware drivers &amp; plugins</h2>
+                    <div class="dl-copy">
+                        <p>Essential drivers and plugins to connect your MLAstro mount to your computer and imaging
+                            software.</p>
+                    </div>
+                    <div class="mt-8 flex flex-col gap-3">
+                        <a class="driver-btn group"
+                            href="https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads"
+                            target="_blank" rel="noopener">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-9 h-9 rounded-xl bg-white/10 p-1.5 flex items-center justify-center flex-shrink-0 border border-white/10 group-hover:border-primary/40 transition-colors">
+                                    <img src="./assets/icon-silabs.png" alt="Silicon Labs" class="w-full h-full object-contain">
+                                </div>
+                                <div>
+                                    <div class="text-[15px] font-semibold text-white group-hover:text-primary transition-colors">CP2102 USB Driver</div>
+                                    <div class="text-[12px] text-white/50">Silicon Labs Virtual COM Port</div>
+                                </div>
+                            </div>
+                            <span class="material-symbols-outlined text-[20px] text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all">chevron_right</span>
                         </a>
 
+                        <a class="driver-btn group"
+                            href="http://stellarjourney.com/main/onstep-ascom-driver-software/"
+                            target="_blank" rel="noopener">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-9 h-9 rounded-xl bg-[#002e6a] p-1.5 flex items-center justify-center flex-shrink-0 border border-white/10 group-hover:border-primary/40 transition-colors">
+                                    <img src="./assets/icon-ascom.png" alt="ASCOM" class="w-full h-full object-contain">
+                                </div>
+                                <div>
+                                    <div class="text-[15px] font-semibold text-white group-hover:text-primary transition-colors">OnStepX ASCOM 1.0.43</div>
+                                    <div class="text-[12px] text-white/50">Telescope Mount Driver Platform</div>
+                                </div>
+                            </div>
+                            <span class="material-symbols-outlined text-[20px] text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all">chevron_right</span>
+                        </a>
+
+                        <a class="driver-btn group"
+                            href="https://github.com/MLAstroRPA/nina.plugin.MLAstroRPA/releases"
+                            target="_blank" rel="noopener">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-9 h-9 rounded-xl bg-white/10 p-1.5 flex items-center justify-center flex-shrink-0 border border-white/10 group-hover:border-primary/40 transition-colors">
+                                    <img src="./assets/icon-nina.png" alt="N.I.N.A" class="w-full h-full object-contain">
+                                </div>
+                                <div>
+                                    <div class="text-[15px] font-semibold text-white group-hover:text-primary transition-colors">MLAstro RPA N.I.N.A Plugin</div>
+                                    <div class="text-[12px] text-white/50">Astrophotography Suite Integration</div>
+                                </div>
+                            </div>
+                            <span class="material-symbols-outlined text-[20px] text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all">chevron_right</span>
+                        </a>
                     </div>
                 </div>
-                <div class="relative z-10 animate-fade-in-up delay-200">
-                    <div class="transform lg:rotate-2 hover:rotate-0 transition-transform duration-700 relative">
-                        <img alt="MLAstro Interface" class="w-full h-auto" src="./assets/windows.png">
-                       
+                <div class="art-card art-card-hw md:justify-self-start opacity-0">
+    <div class="art-card-overlay"></div>
+
+    <div class="relative w-full h-full p-6 flex flex-col justify-between z-10 box-border">
+        
+        <!-- Header Tag: Setup Guide -->
+        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+            <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 pulse-led inline-block"></span>
+                <span class="text-[11px] font-mono tracking-wider text-white font-bold uppercase">HARDWARE SETUP GUIDE</span>
+            </div>
+            <div class="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-[10px] font-mono font-medium">
+                <span>USB CP2102 VCP</span>
+            </div>
+        </div>
+
+        <!-- Main Graphic Area: Laptop to Mount USB Connection -->
+        <div class="relative w-full flex-1 my-1">
+            <svg class="absolute inset-0 w-full h-full overflow-visible" viewBox="0 0 390 280" fill="none">
+                
+                <!-- USB Cable Line connecting Laptop (approx 152, 205) to Mount (approx 280, 115) -->
+                <!-- Dark outer cable sheathing -->
+                <path d="M 152 205 C 235 225, 215 145, 280 115" 
+                      stroke="#141824" stroke-width="6.5" stroke-linecap="round"/>
+                <path d="M 152 205 C 235 225, 215 145, 280 115" 
+                      stroke="#273147" stroke-width="4" stroke-linecap="round"/>
+                
+                <!-- Animated Electricity and Data Stream Pulses -->
+                <path d="M 152 205 C 235 225, 215 145, 280 115" 
+                      stroke="#38bdf8" stroke-width="2" stroke-linecap="round" class="cable-flow"
+                      filter="drop-shadow(0 0 5px #38bdf8)"/>
+                <path d="M 152 205 C 235 225, 215 145, 280 115" 
+                      stroke="#ffb0cd" stroke-width="1.5" stroke-linecap="round" class="cable-flow-rev"
+                      filter="drop-shadow(0 0 6px #ffb0cd)"/>
+
+                <!-- Traveling Electric Photons along the cable -->
+                <circle r="3.5" fill="#ffffff" filter="drop-shadow(0 0 6px #38bdf8)">
+                    <animateMotion path="M 152 205 C 235 225, 215 145, 280 115" dur="1.8s" repeatCount="indefinite" />
+                </circle>
+                <circle r="2.5" fill="#ffb0cd" filter="drop-shadow(0 0 6px #ffb0cd)">
+                    <animateMotion path="M 280 115 C 215 145, 235 225, 152 205" dur="2.2s" repeatCount="indefinite" />
+                </circle>
+
+                <!-- CALLOUT ZOOM (Top Left, referencing user manual image) -->
+                <g transform="translate(10, 8)">
+                    <!-- Callout frame box with technical styling -->
+                    <rect x="0" y="0" width="168" height="94" rx="8" fill="rgba(18, 22, 34, 0.94)" stroke="rgba(255, 255, 255, 0.18)" stroke-width="1" filter="drop-shadow(0 8px 24px rgba(0,0,0,0.6))"/>
+                    <rect x="0" y="0" width="168" height="19" rx="8" fill="rgba(255, 255, 255, 0.05)"/>
+                    <text x="8" y="13" fill="rgba(255,255,255,0.7)" font-size="7.5" font-family="'JetBrains Mono', monospace" font-weight="600">DETAIL: USB PORT INSERTION</text>
+                    
+                    <!-- Callout schematic illustration inside -->
+                    <g transform="translate(15, 28)">
+                        <!-- Device chassis cutaway -->
+                        <line x1="105" y1="5" x2="105" y2="55" stroke="#475569" stroke-width="1.5"/>
+                        <polygon points="105,10 135,18 135,50 105,42" fill="#1e2434" stroke="#475569" stroke-width="1"/>
+                        
+                        <!-- Port Receptacle ① -->
+                        <rect x="98" y="20" width="14" height="18" rx="2" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2"/>
+                        <rect x="101" y="23" width="8" height="12" rx="1" fill="#1e293b"/>
+                        
+                        <!-- Callout Circle ① pointing to Port -->
+                        <circle cx="85" cy="12" r="6.5" fill="#1e293b" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                        <text x="82.5" y="14.5" fill="#ffffff" font-size="7" font-weight="bold">①</text>
+                        <line x1="91" y1="14" x2="100" y2="19" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+
+                        <!-- USB Plug ② inserting with blue arrow -->
+                        <g class="arrow-anim" transform="translate(30, 20)">
+                            <!-- Cable wire -->
+                            <path d="M -15 9 L 10 9" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+                            <!-- Plug body -->
+                            <rect x="10" y="2" width="26" height="14" rx="2" fill="#334155" stroke="#94a3b8" stroke-width="1"/>
+                            <rect x="14" y="5" width="8" height="8" rx="1" fill="#1e293b"/>
+                            <!-- Metal connector head -->
+                            <rect x="36" y="4" width="14" height="10" rx="1" fill="#cbd5e1" stroke="#94a3b8" stroke-width="0.8"/>
+                            <rect x="42" y="6" width="3" height="6" fill="#475569"/>
+
+                            <!-- Arrow showing insertion direction (blue arrow like manual) -->
+                            <g transform="translate(56, 9)">
+                                <path d="M 0 0 L 14 0 M 9 -4 L 14 0 L 9 4" stroke="#00d2ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                        </g>
+
+                        <!-- Callout Circle ② pointing to Plug -->
+                        <circle cx="20" cy="12" r="6.5" fill="#1e293b" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                        <text x="17.5" y="14.5" fill="#ffffff" font-size="7" font-weight="bold">②</text>
+                        <line x1="26" y1="15" x2="35" y2="21" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+                    </g>
+
+                    <!-- Technical connector leader line down to the mount port -->
+                    <path d="M 140 94 L 180 120 L 275 115" stroke="rgba(56, 189, 248, 0.4)" stroke-width="0.8" stroke-dasharray="2,3"/>
+                </g>
+
+                <!-- LAPTOP (Bottom Left) -->
+                <g transform="translate(18, 125)">
+                    <!-- Laptop Base (Perspective angle) -->
+                    <!-- Shadow -->
+                    <polygon points="12,85 138,104 126,110 0,91" fill="rgba(0,0,0,0.6)" />
+                    <!-- Base sides -->
+                    <polygon points="10,80 135,98 135,103 10,85" fill="#1a1e2b" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+                    <!-- Base top deck -->
+                    <polygon points="10,80 135,98 80,55 -45,37" fill="#232838" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+                    
+                    <!-- Trackpad -->
+                    <polygon points="45,82 78,87 70,78 37,73" fill="#181b24" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+                    
+                    <!-- Keyboard Keys Deck (angled layout) -->
+                    <polygon points="5,70 120,86 112,70 -5,53" fill="#151722" stroke="rgba(255,255,255,0.08)" stroke-width="0.6"/>
+                    <g fill="#2a3044" stroke="rgba(255,255,255,0.05)" stroke-width="0.5">
+                        <polygon points="15,68 110,82 108,79 13,65" />
+                        <polygon points="8,62 103,76 101,73 6,59" />
+                        <polygon points="30,75 75,82 73,79 28,72" fill="#38bdf8" opacity="0.6"/>
+                    </g>
+
+                    <!-- Laptop Display Screen (Tilted open) -->
+                    <!-- Back lid -->
+                    <polygon points="-45,37 80,55 80,-38 -45,-56" fill="#11131c" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/>
+                    <!-- Screen Glass -->
+                    <polygon points="-40,33 75,50 75,-33 -40,-50" fill="#0c101a" stroke="rgba(56,189,248,0.4)" stroke-width="1"/>
+                    
+                    <!-- Laptop Screen Display Content -->
+                    <g transform="matrix(0.9 0.14 0 0.85 -30 -35)">
+                        <!-- Window header -->
+                        <rect x="0" y="0" width="105" height="11" rx="2" fill="#1a2030"/>
+                        <circle cx="5" cy="5.5" r="1.8" fill="#f43f5e"/>
+                        <circle cx="10.5" cy="5.5" r="1.8" fill="#eab308"/>
+                        <circle cx="16" cy="5.5" r="1.8" fill="#10b981"/>
+                        <text x="23" y="7.5" fill="rgba(255,255,255,0.7)" font-size="4.5" font-family="'JetBrains Mono', monospace">MLAstro Hub - Windows</text>
+
+                        <!-- Screen window body -->
+                        <rect x="0" y="13" width="105" height="50" rx="2" fill="#101420" stroke="rgba(255,255,255,0.06)"/>
+                        
+                        <!-- Active status badge on laptop screen -->
+                        <rect x="5" y="17" width="95" height="15" rx="3" fill="rgba(56,189,248,0.12)" stroke="rgba(56,189,248,0.3)"/>
+                        <circle cx="12" cy="24.5" r="3" fill="#10b981" class="pulse-led"/>
+                        <text x="20" y="23" fill="#ffffff" font-size="5" font-weight="bold">CP2102 DRIVER ACTIVE</text>
+                        <text x="20" y="29" fill="rgba(255,255,255,0.6)" font-size="4">COM3 (115200 Baud) Connected</text>
+
+                        <!-- Secondary status pills -->
+                        <rect x="5" y="36" width="45" height="12" rx="2" fill="#192032"/>
+                        <text x="10" y="44" fill="#38bdf8" font-size="4">ASCOM 1.0.43: OK</text>
+                        <rect x="55" y="36" width="45" height="12" rx="2" fill="#192032"/>
+                        <text x="60" y="44" fill="#ffb0cd" font-size="4">N.I.N.A Plugin: LIVE</text>
+                    </g>
+
+                    <!-- USB Connector Plugged into Laptop Right Port -->
+                    <g transform="translate(132, 98)">
+                        <!-- USB Port on Laptop Edge -->
+                        <rect x="-2" y="-4" width="4" height="8" rx="1" fill="#0f172a" stroke="#38bdf8" stroke-width="0.8"/>
+                        <!-- USB Plug housing -->
+                        <rect x="2" y="-3" width="12" height="6.5" rx="1.5" fill="#475569" stroke="#94a3b8" stroke-width="0.8"/>
+                        <rect x="13" y="-1.5" width="4" height="3.5" rx="0.5" fill="#334155"/>
+                        <!-- Connection status spark -->
+                        <circle cx="2" cy="0" r="3" fill="#38bdf8" opacity="0.8" class="pulse-led"/>
+                    </g>
+
+                    <!-- Laptop Label Badge -->
+                    <g transform="translate(15, 120)">
+                        <rect x="0" y="0" width="115" height="19" rx="9.5" fill="rgba(15, 23, 42, 0.9)" stroke="rgba(255, 255, 255, 0.15)"/>
+                        <text x="12" y="13" fill="#ffffff" font-size="8.5" font-family="'JetBrains Mono', monospace" font-weight="600">💻 Windows Laptop</text>
+                    </g>
+                </g>
+
+                <!-- MOUNT CONTROLLER (Top Right) -->
+                <g transform="translate(250, 40)">
+                    <!-- Cast shadow -->
+                    <polygon points="15,95 105,108 95,116 5,103" fill="rgba(0,0,0,0.6)" />
+                    
+                    <!-- Altitude Base Wedge -->
+                    <polygon points="20,70 85,78 75,98 10,90" fill="#1e2230" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                    
+                    <!-- Mount Main Casing (Metallic Aluminum Finish) -->
+                    <polygon points="25,15 95,25 90,82 20,72" fill="#2d3345" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
+                    <!-- Top Face of Mount -->
+                    <polygon points="25,15 95,25 75,-12 5,-22" fill="#3d455c" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+                    <!-- Left Connector Face (Facing Laptop) -->
+                    <polygon points="5,-22 25,15 20,72 0,35" fill="#222738" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+
+                    <!-- Saddle clamp on top -->
+                    <polygon points="20,-20 60,-14 55,-28 15,-34" fill="#4b5563" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+
+                    <!-- Front Plate Engraving -->
+                    <g transform="translate(35, 30)">
+                        <circle cx="26" cy="18" r="12" fill="none" stroke="rgba(255,176,205,0.4)" stroke-width="1" stroke-dasharray="2,3"/>
+                        <text x="13" y="21" fill="#ffffff" font-size="6.5" font-weight="bold" letter-spacing="1">MLASTRO</text>
+                    </g>
+
+                    <!-- Red Power Switch (iconic on MLAstro mounts) -->
+                    <g transform="translate(58, 20)">
+                        <circle cx="0" cy="0" r="3.5" fill="#e11d48" stroke="#be123c" stroke-width="0.8"/>
+                        <circle cx="0" cy="0" r="1.5" fill="#ff4d6d"/>
+                    </g>
+
+                    <!-- Ports Panel (On the connector face) -->
+                    <g transform="translate(10, 25)">
+                        <!-- USB Port ① (Connected to cable) -->
+                        <rect x="-2" y="8" width="12" height="14" rx="2" fill="#090b10" stroke="#38bdf8" stroke-width="1.2"/>
+                        <rect x="0" y="11" width="8" height="8" rx="1" fill="#1e293b"/>
+                        
+                        <!-- USB Plug Inserting into Mount -->
+                        <g transform="translate(-16, 9)">
+                            <rect x="0" y="1" width="14" height="10" rx="1.5" fill="#475569" stroke="#94a3b8" stroke-width="0.8"/>
+                            <rect x="12" y="2.5" width="4" height="7" rx="0.5" fill="#cbd5e1"/>
+                            <!-- Glowing insertion contact -->
+                            <circle cx="16" cy="6" r="4" fill="#38bdf8" opacity="0.8" class="pulse-led"/>
+                        </g>
+
+                        <!-- Power Input (12V DC) -->
+                        <circle cx="4" cy="30" r="4.5" fill="#090b10" stroke="#f59e0b" stroke-width="1.2"/>
+                        <circle cx="4" cy="30" r="2" fill="#f59e0b" class="spark-anim"/>
+                        <text x="14" y="32" fill="#f59e0b" font-size="5" font-family="'JetBrains Mono', monospace">12V DC</text>
+
+                        <!-- Status LED -->
+                        <circle cx="4" cy="40" r="2" fill="#10b981" class="pulse-led"/>
+                    </g>
+
+                    <!-- Mount Label Badge -->
+                    <g transform="translate(10, 105)">
+                        <rect x="0" y="0" width="115" height="19" rx="9.5" fill="rgba(15, 23, 42, 0.9)" stroke="rgba(255, 255, 255, 0.15)"/>
+                        <text x="12" y="13" fill="#ffffff" font-size="8.5" font-family="'JetBrains Mono', monospace" font-weight="600">🔭 MLAstro Mount</text>
+                    </g>
+                </g>
+
+            </svg>
+        </div>
+
+        <!-- Bottom Guide Steps (like manual instructions) -->
+        <div class="grid grid-cols-2 gap-2.5 pt-2.5 border-t border-white/10 text-[10px] font-mono">
+            <div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-white/10">
+                <span class="w-4 h-4 rounded-full bg-cyan-400 text-black flex items-center justify-center font-bold text-[9px] flex-shrink-0">1</span>
+                <span class="text-white/90 leading-tight">Connect USB cable to Mount &amp; PC</span>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-white/10">
+                <span class="w-4 h-4 rounded-full bg-emerald-400 text-black flex items-center justify-center font-bold text-[9px] flex-shrink-0">2</span>
+                <span class="text-white/90 leading-tight">CP2102 driver binds Virtual COM</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+            </div>
+        </section>
+
+        <!-- ============ 4. FIRMWARE (art left / text right) ============ -->
+        <section class="dl-section" id="firmware">
+            <div class="dl-grid">
+                <div class="dl-text md:order-2 md:justify-self-start opacity-0">
+                    <h2 class="dl-heading">Update your mount firmware</h2>
+                    <div class="dl-copy">
+                        <p>Flash from your browser over USB, no software needed. Keep your mount and RPA up to date
+                            with the latest features and fixes.</p>
+                    </div>
+                    <div class="flex flex-row flex-wrap items-center gap-3 mt-8">
+                        <a class="btn-pill btn-pill-lg" href="https://test.mlastro.com/" target="_blank"
+                            rel="noopener">
+                            Mount Firmware
+                        </a>
+                        <a class="btn-pill btn-pill-lg" href="https://mlastrorpa.github.io/Firmware-Update/"
+                            target="_blank" rel="noopener">
+                            RPA Firmware
+                        </a>
+                    </div>
+                    <p class="text-[13px] text-white/50 mt-4">
+                        Requires Chrome or Edge (Web Serial) and the
+                        <a class="underline underline-offset-2 hover:text-primary transition-colors"
+                            href="https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads"
+                            target="_blank" rel="noopener">CP2102 driver</a>.
+                    </p>
+                </div>
+                <div class="art-card md:order-1 md:justify-self-end opacity-0">
+                    <div class="mount-frame">
+                        <img src="./assets/mount-33.webp"
+                            alt="MLAstro harmonic mount showing its USB, power and status ports" loading="lazy">
+                        <div class="mount-badge">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span class="text-[10px] font-mono text-white font-semibold">MLAstro SAL-33</span>
+                            </div>
+                            <span class="text-[9px] font-mono text-white/60">Web Serial Ready</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Download Section -->
-        <section class="px-container-padding py-24" id="downloads">
-            <div class="max-w-screen-xl mx-auto">
-                <div class="text-center mb-16 animate-fade-in-up">
-                    <h2 class="font-headline-lg text-headline-lg mb-4">Available Platforms</h2>
-                    <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Mobile Card -->
-                    <div class="glass-panel p-8 rounded-3xl flex flex-col items-center text-center group animate-fade-in-up delay-100 relative"
-                        style="--mouse-x: -9px; --mouse-y: 421px;">
-                        <div
-                            class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-4xl">smartphone</span>
-                        </div>
-                        <h3 class="font-headline-lg text-headline-md mb-2">MLAstro Hub Mobile</h3>
-                        <p class="font-body-md text-on-surface-variant mb-8">Full mobile control suite for field
-                            observations. Optimized for iOS and Android.</p>
-                        <div class="mt-auto flex flex-col gap-3 w-full">
-                            <a class="flex items-center justify-center gap-3 bg-surface-container-highest hover:bg-surface-container-high py-3 px-6 rounded-xl transition-colors"
-                                href="https://apps.apple.com/app/6767999378" target="_blank">
-                                <img src="./assets/icon-appstore.png" alt="App Store" class="h-6 w-auto">
-                                <div class="text-left">
-                                    <p class="text-[10px] uppercase font-label-caps opacity-60">Download on the</p>
-                                    <p class="text-sm font-bold">App Store</p>
-                                </div>
-                            </a>
-                            <a class="flex items-center justify-center gap-3 bg-surface-container-highest hover:bg-surface-container-high py-3 px-6 rounded-xl transition-colors"
-                                href="https://play.google.com/store/apps/details?id=com.mlastro.controllapp"
-                                target="_blank">
-                                <img src="./assets/icon-playstore.png" alt="Google Play" class="h-6 w-auto">
-                                <div class="text-left">
-                                    <p class="text-[10px] uppercase font-label-caps opacity-60">Get it on</p>
-                                    <p class="text-sm font-bold">Google Play</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="absolute -bottom-6 -left-6 z-20 scale-75 md:scale-90 lg:scale-100">
-                            <div class="relative"></div>
-                        </div>
-                    </div>
-                    <!-- Desktop Card -->
-                    <div class="glass-panel p-8 rounded-3xl flex flex-col items-center text-center group border-primary/20 animate-fade-in-up delay-200 relative"
-                        style="--mouse-x: -8.328125px; --mouse-y: 422px;">
-                        <div
-                            class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-4xl">desktop_windows</span>
-                        </div>
-                        <h3 class="font-headline-lg text-headline-md mb-2">MLAstro Hub Desktop</h3>
-                        <p class="font-body-md text-on-surface-variant mb-8">Advanced mount control for Desktop PC.</p>
-                        <div class="mt-auto w-full">
-                            <a href="https://github.com/saigonastrolab/mlastro-release/releases/latest/download/MLAstro_Hub_Setup.rar"
-                                target="_blank"
-                                class="w-full bg-secondary text-on-secondary font-headline-md py-4 rounded-xl hover:shadow-[0_0_20px_rgba(221,183,255,0.4)] transition-all flex items-center justify-center gap-2">
-                                <span class="material-symbols-outlined">download</span>
-                                Download for Windows
-                            </a>
-                            <p class="font-label-caps text-[10px] mt-4 text-on-surface-variant">Requires Windows 10/11
-                                x64</p>
-                        </div>
-                        <div class="absolute -bottom-6 -left-6 z-20 scale-75 md:scale-90 lg:scale-100">
-                            <div class="relative"></div>
-                        </div>
-                    </div>
-                    <!-- Drivers Card -->
-                    <div class="glass-panel p-8 rounded-3xl flex flex-col items-center text-center group animate-fade-in-up delay-300 relative"
-                        style="--mouse-x: -10.6640625px; --mouse-y: 426px;">
-                        <div
-                            class="w-16 h-16 bg-on-surface-variant/10 rounded-2xl flex items-center justify-center mb-6 text-on-surface-variant group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-4xl">settings_input_component</span>
-                        </div>
-                        <h3 class="font-headline-lg text-headline-md mb-2">Hardware Support</h3>
-                        <p class="font-body-md text-on-surface-variant mb-8">Essential drivers to connect to your
-                            MLAstro mounts.</p>
-                        <div class="mt-auto w-full space-y-3">
-                            <a class="flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors border border-white/5 group/link"
-                                href="https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads"
-                                target="_blank">
-                                <span class="font-body-md text-sm">CP2102 USB Driver</span>
-                                <span
-                                    class="material-symbols-outlined text-primary group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-                            </a>
-                            <a class="flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors border border-white/5 group/link"
-                                href="http://stellarjourney.com/main/onstep-ascom-driver-software/" target="_blank">
-                                <span class="font-body-md text-sm">OnStepX ASCOM 1.0.43</span>
-                                <span
-                                    class="material-symbols-outlined text-primary group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-                            </a>
-                            <a class="flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors border border-white/5 group/link"
-                                href="https://github.com/MLAstroRPA/nina.plugin.MLAstroRPA/releases" target="_blank">
-                                <span class="font-body-md text-sm">MLAstro RPA N.I.N.A Plugin</span>
-                                <span
-                                    class="material-symbols-outlined text-primary group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-                            </a>
-                        </div>
-                        <div class="absolute -bottom-6 -left-6 z-20 scale-75 md:scale-90 lg:scale-100">
-                            <div class="relative"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-       
+
     </main>
     <!-- Footer -->
     <footer class="bg-black/30 w-full py-12 px-container-padding border-t border-white/5 relative z-10">
